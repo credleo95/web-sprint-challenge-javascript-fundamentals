@@ -17,6 +17,7 @@ myFunction();
 
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
 
+// The nested function can access the variable internal because the nested function is a child of the function named 'myfunction'. In explaining closure, simply, the child can access the parent function and subsequent variables. However, the parent can not reach inside of the child function. 
 
 
 
@@ -28,10 +29,10 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation(/*Your Code Here*/) {
-  /*Your Code Here*/
-
+function summation(number) {
+  return number * (number + 1)/2 ;
   }
+  summation(4);
  
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
@@ -56,10 +57,14 @@ const zooAnimals = [
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  function animalNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function animalNames(array){
+    const displayNames = [];
+         array.forEach(item => {
+      displayNames.push(`name: ${item.animal_name}, scientific: ${item.scientific_name}`);
+    } )
+    return displayNames; 
   }
-  
+  animalNames(zooAnimals);
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
   The zoo needs a list of all their animal's names converted to lower case. 
@@ -67,9 +72,13 @@ const zooAnimals = [
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowerCaseNames(array){
+    const lowerCaseNames = array.map(item => {
+       return item.animal_name.toLowerCase();
+    })
+    return lowerCaseNames
   }
+  lowerCaseNames(zooAnimals);
   
   
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
