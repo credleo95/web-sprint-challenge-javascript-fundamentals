@@ -86,9 +86,15 @@ const zooAnimals = [
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowPopulationAnimals(array){
+    const lowPopulationAnimals = array.filter(item => {
+      if (item.population < 5){
+        return item.population
+      }
+    })
+    return lowPopulationAnimals; 
   }
+  lowPopulationAnimals(zooAnimals);
   
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
@@ -97,9 +103,13 @@ const zooAnimals = [
   Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count.
   */
 
-  function USApop(/*Your Code Here*/){
-    /*Your Code Here*/
+  function USApop(array){
+    const usAnimalPop = array.reduce((total, item) => {
+      return total + item.population; 
+    }, 0)
+    return usAnimalPop;
   }
+  USApop(zooAnimals)
   
   
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
@@ -110,7 +120,7 @@ const zooAnimals = [
     * The consume function should return the invocation of cb, passing a and b into cb as arguments
   */
 
-  function consume(/*Your Code Here */){
+  function consume(a,b,cb){
     /*Your Code Here */
   }
  
