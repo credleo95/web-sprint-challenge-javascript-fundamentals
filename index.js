@@ -161,10 +161,10 @@ function greeting(firstName,lastName){
 /* 🐴🐴🐴 Step 1: Base Constructor 🐴🐴🐴
  Use the constructor function named CuboidMaker to accept properties for length, width, and height which can be initialized as an object
 */
-function CuboidMaker(length, width, height){
-  this.Length = length;
-  this.Width = width; 
-  this.Height = height; 
+function CuboidMaker(attributes){
+  this.length = attributes.length;
+  this.width = attributes.width; 
+  this.height = attributes.height; 
 }
 
 /* 🐴🐴🐴 Step 2: Volume Method 🐴🐴🐴
@@ -172,7 +172,7 @@ function CuboidMaker(length, width, height){
   Formula for cuboid volume: length * width * height   */
 
 CuboidMaker.prototype.volume = function (){
-  return this.Length * this.Width * this.Height;
+  return this.length * this.width * this.height;
 }
 
 
@@ -182,7 +182,7 @@ CuboidMaker.prototype.volume = function (){
   Formula for cuboid surface area of a cube: 
   2 * (length * width + length * height + width * height)  */
   CuboidMaker.prototype.surfaceArea = function (){
-    return 2 * (this.Length * this.Width + this.Length * this.Height + this.Width * this.Height);
+    return 2 * (this.length * this.width + this.length * this.height + this.width * this.height);
     }
 
 
@@ -202,7 +202,10 @@ CuboidMaker.prototype.volume = function (){
 // cuboid.prototype = Object.create(CuboidMaker.prototype)
   
 
-const cuboid = new CuboidMaker(4, 5, 5);
+const cuboid = new CuboidMaker({
+  'length': 4, 
+   'width': 5, 
+   'height': 5});
   console.log(cuboid);
 
 
@@ -217,19 +220,24 @@ console.log(cuboid.surfaceArea()); // 130
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
 //🦄🦄🦄 1. Take your prototypes from above and refactor into class syntax. Please rename your class CuboidMakerTwo and your object cuboidTwo 🦄🦄🦄
 class CuboidMakerTwo{
-constructor(length, width, height){
-  this.Length = length;
-  this.Width = width;
-  this.Height = height; 
+constructor(attributes){
+  this.length = attributes.length;
+  this.width = attributes.width;
+  this.height = attributes.height; 
 }
 volume(){
-  return this.Length * this.Width * this.Height;
+  return this.length * this.width * this.height;
 }
 surfaceArea(){
-  return 2 * (this.Length * this.Width + this.Length * this.Height + this.Width * this.Height);
+  return 2 * (this.length * this.width + this.length * this.height + this.width * this.height);
 }
 }
-const cuboidTwo = new CuboidMakerTwo(4,5,5)
+const cuboidTwo = new CuboidMakerTwo({
+    'length': 4, 
+     'width': 5, 
+     'height': 5
+    });
+    console.log(cuboidTwo);
 
 
 
